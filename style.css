@@ -1,0 +1,238 @@
+:root {
+	--bg-primary: #0f172a;
+	--bg-secondary: #1e293b;
+	--text-primary: #f8fafc;
+	--text-secondary: #94a3b8;
+	--accent: #38bdf8;
+	--accent-hover: #0ea5e9;
+	--success: #10b981;
+	--danger: #ef4444;
+	--danger-hover: #dc2626;
+	--border: #334155;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+	background-color: var(--bg-primary);
+	color: var(--text-primary);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 2rem 1rem;
+}
+
+.container {
+	width: 100%;
+	max-width: 600px;
+	background-color: var(--bg-secondary);
+	padding: 2rem;
+	border-radius: 12px;
+	box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+	border: 1px solid var(--border);
+	position: relative;
+}
+
+h1 {
+	font-size: 2rem;
+	margin-bottom: 1.5rem;
+	text-align: center;
+	color: var(--accent);
+}
+
+h2 {
+	font-size: 1.25rem;
+	margin-bottom: 1rem;
+	color: var(--text-secondary);
+}
+
+.nav-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+	margin-top: 1rem;
+}
+
+button, .btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.75rem 1.5rem;
+	background-color: var(--accent);
+	color: var(--bg-primary);
+	border: none;
+	border-radius: 6px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background-color 0.2s, transform 0.1s;
+	text-decoration: none;
+	font-size: 1rem;
+}
+
+button:hover, .btn:hover {
+	background-color: var(--accent-hover);
+}
+
+button:active, .btn:active {
+	transform: scale(0.98);
+}
+
+.btn-secondary {
+	background-color: transparent;
+	color: var(--text-primary);
+	border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+	background-color: var(--border);
+}
+
+.btn-danger {
+	background-color: var(--danger);
+	color: white;
+}
+
+.btn-danger:hover {
+	background-color: var(--danger-hover);
+}
+
+.form-group {
+	margin-bottom: 1.25rem;
+}
+
+label {
+	display: block;
+	margin-bottom: 0.5rem;
+	color: var(--text-secondary);
+	font-size: 0.9rem;
+}
+
+input[type="text"], input[type="number"], textarea {
+	width: 100%;
+	padding: 0.75rem;
+	background-color: var(--bg-primary);
+	border: 1px solid var(--border);
+	border-radius: 6px;
+	color: var(--text-primary);
+	font-size: 1rem;
+	transition: border-color 0.2s;
+}
+
+input:focus, textarea:focus {
+	outline: none;
+	border-color: var(--accent);
+}
+
+textarea {
+	resize: vertical;
+	min-height: 120px;
+}
+
+.button-bar {
+	display: flex;
+	gap: 0.75rem;
+	margin-top: 1.5rem;
+}
+
+.button-bar button, .button-bar .btn {
+	flex: 1;
+}
+
+/* Alert/Info Panels */
+.info-panel {
+	background-color: rgba(56, 189, 248, 0.1);
+	border: 1px solid var(--accent);
+	padding: 1rem;
+	border-radius: 6px;
+	margin-bottom: 1.5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.code-display {
+	font-family: monospace;
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: var(--success);
+	letter-spacing: 2px;
+}
+
+.countdown {
+	font-size: 1.1rem;
+	font-weight: bold;
+	color: var(--danger);
+}
+
+/* List styles */
+.secret-list {
+	list-style: none;
+	margin-top: 1rem;
+}
+
+.secret-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	background-color: var(--bg-primary);
+	border: 1px solid var(--border);
+	border-radius: 6px;
+	margin-bottom: 0.75rem;
+	cursor: pointer;
+	transition: border-color 0.2s, background-color 0.2s;
+}
+
+.secret-item:hover {
+	border-color: var(--accent);
+	background-color: rgba(56, 189, 248, 0.05);
+}
+
+.secret-info {
+	flex-grow: 1;
+}
+
+.secret-domain {
+	font-weight: 600;
+}
+
+.secret-preview {
+	font-size: 0.85rem;
+	color: var(--text-secondary);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 300px;
+	margin-top: 0.25rem;
+}
+
+.secret-result {
+	margin-top: 1.5rem;
+	background-color: rgba(16, 185, 129, 0.1);
+	border: 1px solid var(--success);
+	padding: 1.5rem;
+	border-radius: 6px;
+}
+
+.secret-result textarea {
+	background-color: rgba(0,0,0,0.2);
+	margin-bottom: 1rem;
+}
+
+.back-link {
+	display: inline-block;
+	margin-bottom: 1.5rem;
+	color: var(--text-secondary);
+	text-decoration: none;
+	font-size: 0.9rem;
+}
+
+.back-link:hover {
+	color: var(--accent);
+}
