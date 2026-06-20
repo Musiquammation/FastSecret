@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FastSecret - Receive</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<a href="index.html" class="back-link">&larr; Back to Home</a>
+		<h1>Receive Secret</h1>
+		
+		<div class="form-group">
+			<label for="domain">Domain:</label>
+			<input type="text" id="domain" placeholder="Enter domain">
+		</div>
+		<div class="form-group">
+			<label for="code">Short Code:</label>
+			<input type="text" id="code" placeholder="e.g. a7*">
+		</div>
+
+		<button id="btn-fetch" style="width: 100%; margin-top: 0.5rem;">Fetch Secret</button>
+
+		<!-- Result Box display -->
+		<div id="result-panel" class="secret-result" style="display: none;">
+			<h3 style="margin-bottom: 0.5rem; color: var(--success);">Secret Received!</h3>
+			<textarea id="result-text" readonly></textarea>
+			<button id="btn-copy" style="width: 100%;">Copy to Clipboard</button>
+		</div>
+	</div>
+	<script src="requests.js"></script>
+	<script src="receive.js"></script>
+</body>
+</html>
