@@ -1,4 +1,4 @@
-var SERV_URL = "http://localhost:5000";
+var SERV_URL = "http://localhost:7344";
 
 async function fetchGet(route, data) {
 	const params = new URLSearchParams(data).toString();
