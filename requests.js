@@ -1,4 +1,4 @@
-var SERV_URL = "http://localhost:7344";
+var SERV_URL = "https://5.51.5.55.sslip.io:7843";
 
 async function fetchGet(route, data) {
 	const params = new URLSearchParams(data).toString();
