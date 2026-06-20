@@ -1,6 +1,9 @@
 import 'dotenv/config'
 import express, { Request, Response } from 'express';
 import cors from 'cors';
+import fs from 'fs';
+import http from 'http';
+import https from 'https';
 
 const app = express();
 app.use(cors());
@@ -113,8 +116,35 @@ app.get('/getSecret', (req: Request, res: Response) => {
 	return res.json({ secret: matchItem.secret });
 });
 
+
+
+
+
+
+
+
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-	console.log(`[FastSecret Backend] Server running at http://localhost:${PORT}`);
-});
+const sslKeyPath = process.env.SSL_KEY_PATH;
+const sslCertPath = process.env.SSL_CERT_PATH;
+
+// Enable HTTPS only if both SSL files are provided
+if (sslKeyPath && sslCertPath) {
+	const httpsOptions = {
+		key: fs.readFileSync(sslKeyPath),
+		cert: fs.readFileSync(sslCertPath)
+	};
+
+	https.createServer(httpsOptions, app).listen(PORT, () => {
+		console.log(
+			`[FastSecret Backend] Secure server running at https://localhost:${PORT}`
+		);
+	});
+} else {
+	// Fallback to the current HTTP behavior
+	http.createServer(app).listen(PORT, () => {
+		console.log(
+			`[FastSecret Backend] Server running at http://localhost:${PORT}`
+		);
+	});
+}
